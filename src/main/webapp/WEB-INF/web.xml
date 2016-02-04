@@ -1,10 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-          http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-         version="2.5">
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+           version="3.0">
 
-    <display-name>huiyishoes</display-name>
+    <display-name>huiyishoes web application</display-name>
+
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>huiyishoes</param-value>
+    </context-param>
 
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>
@@ -19,13 +25,16 @@
     </servlet-mapping>
 
 
+    <!-- 上下文参数 -->
+
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
     </context-param>
 
-
+    <!-- 监听器 -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
 </web-app>
