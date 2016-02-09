@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by ggjjl1 on 12/25/15.
  */
 @Controller
-@RequestMapping("/hello")
+@RequestMapping("/")
 public class BaseController {
     @RequestMapping(value="/", method= RequestMethod.GET)
     public String index(ModelMap model){
