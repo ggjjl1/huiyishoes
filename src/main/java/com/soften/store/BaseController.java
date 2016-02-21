@@ -14,6 +14,7 @@ public class BaseController {
     @RequestMapping(value="/", method= RequestMethod.GET)
     public String index(ModelMap model){
         model.addAttribute("message", "hello world!");
+        model.addAttribute("siteTitle", "慧怡女鞋官网");
         return "index";
     }
 
