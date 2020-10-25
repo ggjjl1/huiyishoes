@@ -23,7 +23,6 @@ public class UserTest {
         user.setUsername("jack");
         user.setEmail("jack@huiyishoes.com");
         user.setPassword("123456");
-        System.out.println(userService.addUser(user));
     }
 
 }

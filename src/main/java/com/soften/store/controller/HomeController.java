@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
+
 import java.util.Date;
 import java.util.Map;
 
@@ -25,9 +29,17 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping("homewithtime")
+    @RequestMapping("/testServletAPI")
+    public String testServletAPI(HttpServletRequest request, HttpServletResponse response) {
+//    	System.out.println("request: " + request.toString() + ", response: " + response.toString());
+        System.out.println(request.getSession().toString());
+        return "home";
+    }
+
+    @RequestMapping("/time")
     public ModelAndView testModelAndView() {
-        ModelAndView modelAndView = new ModelAndView("home");
+        // 不管返回类型是什么，String, Map, 还是其他，Spring都会转换成ModelAndView
+        ModelAndView modelAndView = new ModelAndView("time");
         modelAndView.addObject("time", new Date());
 
         return modelAndView;
@@ -70,9 +82,9 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login( User user, Errors errors) {
+    public String login(User user, Errors errors) {
 
-        if(errors.hasErrors()) {
+        if (errors.hasErrors()) {
             return "login";
         }
 
@@ -89,38 +101,43 @@ public class HomeController {
         return "redirect:/login";
     }
 
-    @RequestMapping(value="/register", method = RequestMethod.GET)
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String showRegister(Model model) {
         model.addAttribute(new User());
         return "register";
     }
 
-    @RequestMapping(value="/register", method = RequestMethod.POST)
-    public String register( User user, Errors errors) {
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String register(@Valid User user, Errors errors, Model model) {
 
-        String errMsg = null;
-
-        if(StringUtils.isBlank(user.getEmail())){
-            errMsg = "邮箱为空";
-        }
-        if(StringUtils.isBlank(user.getUsername())){
-            errMsg = "用户名为空";
-        }
-        if(StringUtils.isBlank(user.getPassword())){
-            errMsg = "密码为空";
-        }
-
-        if(errors.hasErrors()) {
+        if (errors.hasErrors()) {
+            model.addAttribute("user", user);
             return "register";
         }
 
-//        try {
-//            userService.userRegister(user);
-//        }catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+            userService.userRegister(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return "redirect:/register";
+    }
+
+    public String valid(User user) {
+        String errMsg = "";
+
+        if (StringUtils.isBlank(user.getEmail())) {
+            errMsg = "邮箱为空";
+        }
+        if (StringUtils.isBlank(user.getUsername())) {
+            errMsg = "用户名为空";
+        }
+        if (StringUtils.isBlank(user.getPassword())) {
+            errMsg = "密码为空";
+        }
+
+        return errMsg;
     }
 
 }
