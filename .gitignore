@@ -40,6 +40,4 @@ src/main/webapp/WEB-INF/views/helper/
 src/main/webapp/common.zip
 etc
 /src/main/resources/rebel.xml
-/src/main/webapp/static/*
-/src/main/webapp/static
 ~*

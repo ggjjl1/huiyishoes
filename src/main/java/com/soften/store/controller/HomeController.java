@@ -38,7 +38,7 @@ public class HomeController {
 
     @RequestMapping("/time")
     public ModelAndView testModelAndView() {
-        // 不管返回类型是什么，String, Map, 还是其他，Spring都会转换成ModelAndView
+        // 不管返回类型是什么，String, Map, Object, 还是其他，Spring都会转换成ModelAndView
         ModelAndView modelAndView = new ModelAndView("time");
         modelAndView.addObject("time", new Date());
 
