@@ -13,13 +13,15 @@
 <title>用户注册</title>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/static/css/style.css" />">
+<script src="<c:url value="/static/js/jquery-3.5.1.js" />"></script>
+<script src="<c:url value="/static/js/one.js"/>"></script>
 </head>
 <body>
 
 	<h3>用户注册</h3>
 
 	<form:form method="post" action="register" modelAttribute="user">
-<%-- 		<form:errors path="*" element="div" cssClass="errors" /> --%>
+		<%-- 		<form:errors path="*" element="div" cssClass="errors" /> --%>
 		<table cellpadding="5" cellspacing="0" border="0">
 			<tr>
 				<td><form:label path="email" cssErrorClass="error">邮箱</form:label></td>

@@ -7,7 +7,7 @@ create table if not exists `user` (
     `email` varchar(100) not null,
     `username` varchar(100) not null,
     `password` varchar(50) not null,
-    `create_time` int(11) not null,
+    `create_time` datetime not null,
     `update_time` datetime not null,
     primary key (`id`),
     unique key `username` (`username`)

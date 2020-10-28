@@ -19,5 +19,8 @@
 <a href="<c:url value="/login"/>">登录</a> |
 <a href="<c:url value="/register"/>">注册</a>
 
+<hr>
+<a href="<c:url value="/logout"/>">退出登录</a>
+
 </body>
 </html>
