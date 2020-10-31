@@ -1,11 +1,9 @@
 package com.soften.store.mapper;
 
 import com.soften.store.model.User;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 

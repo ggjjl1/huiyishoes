@@ -13,57 +13,57 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserMapper userMapper;
+    @Autowired
+    private UserMapper userMapper;
 
-	@Override
-	public List<User> getAll() {
-		return userMapper.selectAll();
-	}
+    @Override
+    public List<User> getAll() {
+        return userMapper.selectAll();
+    }
 
-	@Override
-	public int removeUser(int id) {
-		return userMapper.deleteByPrimaryKey(id);
-	}
+    @Override
+    public int removeUser(int id) {
+        return userMapper.deleteByPrimaryKey(id);
+    }
 
-	@Override
-	public User findUserById(int id) {
-		return userMapper.selectByPrimaryKey(id);
-	}
+    @Override
+    public User findUserById(int id) {
+        return userMapper.selectByPrimaryKey(id);
+    }
 
-	@Override
-	public User findUserByUsername(String username) {
-		return userMapper.selectByUsername(username);
-	}
+    @Override
+    public User findUserByUsername(String username) {
+        return userMapper.selectByUsername(username);
+    }
 
-	@Override
-	public User userLoigin(User user) {
+    @Override
+    public User userLoigin(User user) {
 
-		String username = user.getUsername();
-		String password = user.getPassword();
+        String username = user.getUsername();
+        String password = user.getPassword();
 
-		User rsObj = null;
+        User rsObj = null;
 
-		if (username != null) {
-			rsObj = userMapper.selectByUsername(username);
-		}
-		if (rsObj != null) {
+        if (username != null) {
+            rsObj = userMapper.selectByUsername(username);
+        }
+        if (rsObj != null) {
 
-			if (!Md5Util.md5(password).equals(rsObj.getPassword())) {
-				return null;
-			}
-		}
-		return rsObj;
-	}
+            if (!Md5Util.md5(password).equals(rsObj.getPassword())) {
+                return null;
+            }
+        }
+        return rsObj;
+    }
 
-	@Override
-	public int userRegister(User user) {
-		Date now = new Date();
-		user.setPassword(Md5Util.md5(user.getPassword()));
-		user.setCreateTime(now);
-		user.setUpdateTime(now);
-		userMapper.insert(user);
-		System.out.println("userRegister: " + user.toString());
-		return user.getId();
-	}
+    @Override
+    public int userRegister(User user) {
+        Date now = new Date();
+        user.setPassword(Md5Util.md5(user.getPassword()));
+        user.setCreateTime(now);
+        user.setUpdateTime(now);
+        userMapper.insert(user);
+        System.out.println("userRegister: " + user.toString());
+        return user.getId();
+    }
 }

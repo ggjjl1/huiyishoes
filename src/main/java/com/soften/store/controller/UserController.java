@@ -1,11 +1,7 @@
 package com.soften.store.controller;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-
+import com.soften.store.model.User;
+import com.soften.store.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,108 +9,104 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.soften.store.model.User;
-import com.soften.store.service.UserService;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("")
 public class UserController {
 
-	@Resource
-	private UserService userService;
+    @Resource
+    private UserService userService;
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String showLogin(HttpServletRequest request, HttpServletResponse response, Model model) {
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String showLogin(Model model) {
+        model.addAttribute(new User());
+        return "login";
+    }
 
-		HttpSession session = request.getSession(true);
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(HttpServletRequest request, HttpServletResponse response, @Valid User user, Errors errors) {
 
-		System.out.println("打印session:");
-		System.out.println(session.getAttribute("huiyishoes"));
+        if (errors.hasErrors()) {
+            return "login";
+        }
 
-		model.addAttribute(new User());
-		return "login";
-	}
+        String username = user.getUsername();
+        String password = user.getPassword();
+        System.out.println("用户名：" + username);
+        System.out.println("密码：" + password);
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(HttpServletRequest request, HttpServletResponse response, User user, Errors errors) {
+        User rsObj = null;
 
-		if (errors.hasErrors()) {
-			return "login";
-		}
+        if (username != null) {
+            rsObj = userService.userLoigin(user);
+        }
 
-		String username = user.getUsername();
-		String password = user.getPassword();
-		System.out.println("用户名：" + username);
-		System.out.println("密码：" + password);
+        if (rsObj == null) {
+            System.out.println("用户名或密码错误！");
+        } else {
+            System.out.println("登录成功！");
+            HttpSession session = request.getSession(true);
+            session.setAttribute("user", rsObj);
+        }
 
-		User rsObj = null;
+        return "redirect:/";
+    }
 
-		if (username != null) {
-			rsObj = userService.userLoigin(user);
-		}
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpServletRequest request) {
+        request.getSession().removeAttribute("user");
+        return "redirect:/";
+    }
 
-		if (rsObj == null) {
-			System.out.println("用户不存在或密码错误！");
-		} else {
-			System.out.println("登录成功！");
-			HttpSession session = request.getSession(true);
-			session.setAttribute("huiyishoes", rsObj);
-		}
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String showRegister(Model model) {
+        model.addAttribute(new User());
+        return "register";
+    }
 
-		return "redirect:/login";
-	}
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String register(@Valid User user, Errors errors, Model model) {
 
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
-		session.removeAttribute("huiyishoes");
-		return "redirect:/home";
-	}
+        if (errors.hasErrors()) {
+            model.addAttribute("user", user);
+            return "register";
+        }
 
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public String showRegister(Model model) {
-		model.addAttribute(new User());
-		return "register";
-	}
+        String username = user.getUsername();
+        String password = user.getPassword();
+        String email = user.getEmail();
+        System.out.println("用户名: " + username);
+        System.out.println("密码: " + password);
+        System.out.println("邮箱: " + email);
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String register(@Valid User user, Errors errors, Model model) {
+        try {
+            userService.userRegister(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		if (errors.hasErrors()) {
-			model.addAttribute("user", user);
-			return "register";
-		}
+        return "redirect:/register";
+    }
 
-		String username = user.getUsername();
-		String password = user.getPassword();
-		String email = user.getEmail();
-		System.out.println("用户名: " + username);
-		System.out.println("密码: " + password);
-		System.out.println("邮箱: " + email);
+    public String valid(User user) {
+        String errMsg = "";
 
-		try {
-			userService.userRegister(user);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+        if (StringUtils.isBlank(user.getEmail())) {
+            errMsg = "邮箱为空";
+        }
+        if (StringUtils.isBlank(user.getUsername())) {
+            errMsg = "用户名为空";
+        }
+        if (StringUtils.isBlank(user.getPassword())) {
+            errMsg = "密码为空";
+        }
 
-		return "redirect:/register";
-	}
-
-	public String valid(User user) {
-		String errMsg = "";
-
-		if (StringUtils.isBlank(user.getEmail())) {
-			errMsg = "邮箱为空";
-		}
-		if (StringUtils.isBlank(user.getUsername())) {
-			errMsg = "用户名为空";
-		}
-		if (StringUtils.isBlank(user.getPassword())) {
-			errMsg = "密码为空";
-		}
-
-		return errMsg;
-	}
+        return errMsg;
+    }
 
 }

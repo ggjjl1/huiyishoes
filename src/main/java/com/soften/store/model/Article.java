@@ -1,20 +1,34 @@
 package com.soften.store.model;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 
 public class Article implements Serializable {
     private Integer id;
 
+    @NotBlank(message = "标题不能为空")
     private String title;
 
+    @NotBlank(message = "内容不能为空")
+    private String content;
+
     private String tags;
+
+    private Integer userId;
 
     private Date createTime;
 
     private Date updateTime;
 
-    private String content;
+    public Article() {
+    }
+
+    public Article(@NotBlank(message = "标题不能为空") String title, @NotBlank(message = "内容不能为空") String content) {
+        this.title = title;
+        this.content = content;
+        this.setTags("默认");
+    }
 
     private static final long serialVersionUID = 1L;
 
@@ -64,6 +78,14 @@ public class Article implements Serializable {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     @Override

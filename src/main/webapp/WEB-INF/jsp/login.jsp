@@ -1,13 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ggjjl1
-  Date: 2020/10/19
-  Time: 19:33
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
 <title>用户登录</title>
@@ -20,6 +13,7 @@
 
 	<h3>用户登录</h3>
 	<form:form action="login" method="post" modelAttribute="user">
+		<form:errors path="*" element="div" cssClass="errors"/>
 		<table cellpadding="5" cellspacing="0" border="0">
 			<tr>
 				<td><form:label path="username">用户名</form:label></td>
@@ -27,7 +21,7 @@
 			</tr>
 			<tr>
 				<td><form:label path="password">密码</form:label></td>
-				<td><form:input path="password" /></td>
+				<td><form:password path="password" /></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="登录"></td>

@@ -1,60 +1,26 @@
 package com.soften.store.controller;
 
-import javax.annotation.Resource;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.soften.store.model.Article;
+import com.soften.store.service.ArticleService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.soften.store.service.UserService;
+import javax.annotation.Resource;
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
 public class HomeController {
 
     @Resource
-    private UserService userService;
+    private ArticleService articleService;
 
-    @RequestMapping(value = {"/", "/home"})
-    public String home() {
+    @RequestMapping(value = "/")
+    public String home(Model model) {
+        List<Article> articleList = articleService.getAllArticle();
+        model.addAttribute("articles", articleList);
         return "home";
-    }
-    
-    /**
-     * 测试从客户端读取所有cookie
-     * @param request
-     * @param response
-     */
-    @RequestMapping("/testCookie")
-    public void testCookie(HttpServletRequest request, HttpServletResponse response) {
-    	
-    	// 获得一个cookie数组
-    	Cookie[] cookies = request.getCookies();
-    	if(cookies == null) {
-    		System.out.println("没有get到cookie信息");
-    	} else {
-    		for(Cookie cookie: cookies) {
-    			System.out.println(cookie);
-    			System.out.println("name: " + cookie.getName() + ", value: " + cookie.getValue());
-    		}
-    	}
-    }
-    
-    /**
-     * 测试往客户端添加cookie，有效时间60秒
-     * @param request
-     * @param response
-     * @param name
-     * @param value
-     */
-    @RequestMapping("/addCookie")
-    public void addCookie(HttpServletRequest request, HttpServletResponse response, String name, String value) {
-    	Cookie cookie = new Cookie(name.trim(), value.trim());
-    	// 设置cookie有效时间60秒
-    	cookie.setMaxAge(60);
-    	cookie.setPath("/");
-    	response.addCookie(cookie);
     }
 }
