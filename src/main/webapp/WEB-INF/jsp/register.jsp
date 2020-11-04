@@ -4,7 +4,6 @@
 <html>
 <head>
     <title>用户注册</title>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/style.css" />">
     <script type="text/javascript" src="<c:url value="/static/js/jquery-3.5.1.js" />"></script>
     <script type="text/javascript" src="<c:url value="/static/js/one.js"/>"></script>
 </head>

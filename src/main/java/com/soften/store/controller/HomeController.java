@@ -4,7 +4,6 @@ import com.soften.store.model.Article;
 import com.soften.store.service.ArticleService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -18,9 +17,14 @@ public class HomeController {
     private ArticleService articleService;
 
     @RequestMapping(value = "/")
-    public String home(Model model) {
+    public String index(Model model) {
         List<Article> articleList = articleService.getAllArticle();
         model.addAttribute("articles", articleList);
-        return "home";
+        return "index";
+    }
+
+    @RequestMapping("/corp")
+    public String corp() {
+        return "corp";
     }
 }

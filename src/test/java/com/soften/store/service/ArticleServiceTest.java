@@ -9,7 +9,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import javax.annotation.Resource;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:config/springmvc-dispatcher-servlet.xml")
+@ContextConfiguration(locations = "classpath:config/applicationContext.xml")
 @WebAppConfiguration
 public class ArticleServiceTest {
 

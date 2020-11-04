@@ -1,26 +1,30 @@
-create database if not exists `huiyishoes`;
-use `huiyishoes`;
+CREATE DATABASE
+IF NOT EXISTS `huiyishoes`;
+
+USE `huiyishoes`;
 
 -- 用户表
-create table if not exists `user` (
-    `id` int(11) not null auto_increment,
-    `email` varchar(100) not null,
-    `username` varchar(100) not null,
-    `password` varchar(50) not null,
-    `create_time` datetime not null,
-    `update_time` datetime not null,
-    primary key (`id`),
-    unique key `username` (`username`)
-) engine=innodb default charset=utf8;
+CREATE TABLE
+IF NOT EXISTS `user` (
+	`id` INT (11) NOT NULL auto_increment,
+	`email` VARCHAR (100) NOT NULL,
+	`username` VARCHAR (100) NOT NULL,
+	`password` VARCHAR (50) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `username` (`username`)
+) ENGINE = INNODB DEFAULT charset = utf8;
 
 -- 文章表
-create table if not exists `article` (
-    `id` int(11) not null auto_increment,
-    `title` varchar(300) not null,
-    `content` text not null,
-    `tags` varchar(200) not null,
-    `user_id` int(11) not null,
-    `create_time` datetime not null,
-    `update_time` datetime not null,
-    primary key (`id`) 
-) engine=innodb default charset=utf8;
+CREATE TABLE
+IF NOT EXISTS `article` (
+	`id` INT (11) NOT NULL auto_increment,
+	`title` VARCHAR (300) NOT NULL,
+	`content` text NOT NULL,
+	`tags` VARCHAR (200) NOT NULL,
+	`user_id` INT (11) NOT NULL,
+	`create_time` datetime NOT NULL,
+	`update_time` datetime NOT NULL,
+	PRIMARY KEY (`id`)
+) ENGINE = INNODB DEFAULT charset = utf8;
