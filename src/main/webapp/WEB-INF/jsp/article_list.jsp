@@ -1,10 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>慧怡女鞋官方网站 | huiyishoes.com</title>
+    <title>最新动态——慧怡女鞋 | huiyishoes.com</title>
     <meta content="huiyishoes.com慧怡女鞋是一家专注打造高品质真皮女鞋的网站" name="description"/>
     <meta content="慧怡,慧怡女鞋,慧怡女鞋馆,huiyishoes.com,huiyishoes,女鞋,真皮女鞋,石家庄慧怡女鞋" name="keywords"/>
     <meta content="" name="copyright"/>
@@ -18,7 +17,7 @@
     <div class="header">
         <div class="mb_logo">
             <%--            <img src="<c:url value="/static/img/huiyi_logo.jpg"/> " width="307" height="104" alt="huiyishoes.com"/>--%>
-            慧怡女鞋
+            慧怡
         </div>
         <div class="mb_nav">
             <ul>
@@ -104,99 +103,14 @@
             </ul>
         </div>
     </div>
-    <!-- scroll -->
-    <div class="mb_scroll">
-        <div class="mb_slider">
-            <div class="mb_sliderItem">
-                <img title="huiyishoes001.jpg" alt="huiyishoes001.jpg"
-                     src="<c:url value="/static/img/huiyishoes001.jpg"/> "/>
-            </div>
-            <div class="mb_sliderItem">
-                <img title="huiyishoes002.jpg" alt="huiyishoes002.jpg"
-                     src="<c:url value="/static/img/huiyishoes002.jpg"/> "/>
-            </div>
-            <div class="mb_sliderItem">
-                <img title="huiyishoes003.jpg" alt="huiyishoes003.jpg"
-                     src="<c:url value="/static/img/huiyishoes003.jpg"/> "/>
-            </div>
-            <div class="mb_sliderItem">
-                <img title="huiyishoes004.jpg" alt="huiyishoes004.jpg"
-                     src="<c:url value="/static/img/huiyishoes004.jpg"/> "/>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript">
-        /* 轮播图 */
-        $(".mb_scroll").picSlider({
-            sliderStyle: 1,
-            //1为渐隐,2为滑动
-            picSliderThumb: ".mb_slider",
-            //图片外框样式
-            sliderBox: ".mb_sliderItem",
-            //sliderStyle为1时,display需为none
-            sliderLiHoverClass: "sliderLiHoverClass",
-            //标记选中样式
-            IsSliderLiNum: 1,
-            //下标是否要数字,0不显示,1显示
-            autoPlaySec: 5000,
-            //自动切换速度,1000为1秒
-            SliderdelaySec: 200,
-            //渐隐或滑动速度
-            IsAutoPlay: 1,
-            //0为关闭,1为开启
-            IsPicFullScreen: 0 //0为自定义，1为图片宽度全屏
-        });
-    </script>
     <!-- content -->
-    <div class="mb_content">
-        <!-- left -->
-        <div class="mb_fl_frame">
-            <!-- 品牌介绍 -->
-            <dl>
-                <dt>品牌介绍
-                    <b>/ ABOUT BRAND</b>
-                </dt>
-                <dd>
-                    <p>
-                        <span style="line-height: 115%; font-family: 宋体,SimSun; font-size: 12px;">我们起步于1999年，是一个来自浙江的专注打造高品质真皮女鞋的品牌。几十年来专注于高品质女鞋的打造和开发，致力于为中国女性提供舒适的鞋子。</span>
-                    </p>
-                </dd>
-            </dl>
-        </div>
-        <!-- middle -->
-        <div class="mb_mid_frame">
-            <!-- 活动公告 -->
-            <dl>
-                <dt>
-                    <a style="text-decoration:none;color:#000"
-                       href="#"
-                       title="查看更多" target="_blank">活动公告</a>
-                    <a style="text-decoration:none;color:#eb4d88" target="_blank"
-                       href="#">
-                        <b>/ ANNOUNCEMENT</b>
-                    </a>
-                    <a class="mb_btn_more"></a>
-                </dt>
-                <dd class="mb_mid_frame_con">
-                    <c:forEach var="item" items="${articles}">
-                        <a href="<c:url value="/article/${item.id}"/>">${item.title}</a>
-                    </c:forEach>
-                </dd>
-            </dl>
-        </div>
-        <!-- right -->
-        <div class="mb_fr_frame">
-            <!-- 联系我们 -->
-            <dl>
-                <dt>联系我们<b> / CONTACT US</b></dt>
-                <dd>
-                    <ul>
-                        <li>地址：河北省石家庄市华北鞋城E区3排5号</li>
-                        <li>电话：18243001174</li>
-                        <li><a style="color: #111;" href="https://13780516996.taobao.com">>> 在线购物：慧怡女鞋馆</a></li>
-                    </ul>
-                </dd>
-            </dl>
+    <div class="mb_content mb_article_con">
+        <!-- 面包屑 -->
+        <div class="mb_brand">首页 > 最新动态</div>
+        <!-- 文章内容 -->
+        <div class="hy_article">
+            <h3>${article.title}</h3>
+            <p>${article.content}</p>
         </div>
     </div>
     <div class="mb_footer">
@@ -226,14 +140,14 @@
                 </a>
             </li>
             <li>
-                <a href="/feedback" target="_blank">问题反馈</a>
+                <a href="/feedback" target="_blank">向我们反馈</a>
                 <a href="/feedback" target="_blank">
                     <b>/ FEEDBACK</b>
                 </a>
             </li>
             <li>
-                <a href="/storelocator" target="_blank">查找门店</a>
-                <a href="/storelocator" target="_blank">
+                <a href="/store" target="_blank">我们的门店</a>
+                <a href="/store" target="_blank">
                     <b>/ STORE LOCATOR</b>
                 </a>
             </li>
@@ -242,5 +156,4 @@
     </div>
 </div>
 </body>
-
 </html>

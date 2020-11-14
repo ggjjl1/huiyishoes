@@ -25,7 +25,7 @@ a {
 
 /*header*/
 .header {
-    height: 104px;
+    height: 100px;
     position: absolute;
     top: 50px;
     z-index: 100;
@@ -47,28 +47,24 @@ a {
 /*}*/
 
 .mb_logo {
-    width: 307px;
-    height: 104px;
+    width: 300px;
+    height: 100px;
     float: left;
     display: block;
     background-color: #eb4d88;
-    font-size: 72px;
+    font-size: 48px;
     font-family: 微软雅黑;
     color: #fff;
-    align-content: center;
-    /*margin-left: 20px;*/
-    margin: 0 auto;
+    text-align: center;
+    line-height: 100px;
 }
 
 .mb_nav {
-    width: 1006px;
+    width: 750px;
     height: 68px;
-    margin: 19px 0 0 194px;
-    padding: 0;
+    margin: 10px 0 0 5px;
     float: left;
     display: block;
-    position: absolute;
-    z-index: 111
 }
 
 .mb_btn_home {
@@ -269,19 +265,13 @@ a {
 
 .mb_fl_frame,
 .mb_mid_frame,
-.mb_fr_frame,
-.mb_con_lf,
-.mb_con_rf {
+.mb_fr_frame {
     margin-left: 40px;
     padding: 0;
     float: left;
     display: block;
-    width: 280px;
+    width: 340px;
     height: auto
-}
-
-.mb_fr_frame {
-    width: 480px
 }
 
 .mb_fl_frame dl,
@@ -292,14 +282,8 @@ a {
 .mb_mid_frame dl dd,
 .mb_fr_frame dl,
 .mb_fr_frame dl dt,
-.mb_fr_frame dl dd,
-.mb_con_lf,
-.mb_con_lf dt,
-.mb_con_lf dd,
-.mb_con_rf,
-.mb_con_rf dt,
-.mb_con_rf dd {
-    width: 280px;
+.mb_fr_frame dl dd {
+    width: 340px;
     height: auto;
     float: left;
     display: block;
@@ -309,9 +293,7 @@ a {
 
 .mb_fl_frame dl dt,
 .mb_mid_frame dl dt,
-.mb_fr_frame dl dt,
-.mb_con_lf dt,
-.mb_con_rf dt {
+.mb_fr_frame dl dt {
     margin-top: 40px;
     padding-bottom: 20px;
     font: normal 16px "微软雅黑", "宋体";
@@ -457,24 +439,9 @@ a {
     color: #000
 }
 
-.mb_fr_frame dl,
-.mb_fr_frame dl dt,
-.mb_fr_frame dl dd {
-    width: 480px
-}
-
-.mb_pic_museum {
-    margin-top: 20px;
-    padding: 0;
-    float: left;
-    display: block;
-    width: 480px;
-    height: auto
-}
-
 .mb_fr_frame dl dd ul,
 .mb_fr_frame dl dd ul li {
-    width: 480px;
+    width: 340px;
     height: auto;
     float: left;
     display: block;
@@ -485,7 +452,7 @@ a {
 .mb_fr_frame dl dd ul li a {
     float: left;
     font: normal 12px "微软雅黑", "宋体";
-    width: 390px;
+    width: 300px;
     color: #000;
     text-decoration: none
 }
@@ -552,13 +519,21 @@ a {
 }
 
 /*article detail*/
+.hy_article {
+    width: 100%;
+    height: 300px;
+    margin: 0 50px;
+}
+
 .mb_article_con {
+    width: 100%;
     height: auto;
     position: relative;
     background-color: #F4F3EE;
     float: left;
     left: 50%;
     margin-left: -600px;
+    padding-top: 180px;
 }
 
 .mb_bread {

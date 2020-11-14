@@ -19,12 +19,42 @@ public class HomeController {
     @RequestMapping(value = "/")
     public String index(Model model) {
         List<Article> articleList = articleService.getAllArticle();
-        model.addAttribute("articles", articleList);
+        model.addAttribute("articles", articleList.subList(0, 5));
         return "index";
     }
 
-    @RequestMapping("/corp")
-    public String corp() {
-        return "corp";
+    @RequestMapping(value = "/articleList")
+    public String news() {
+        return "article_list";
+    }
+
+    @RequestMapping("/about")
+    public String about() {
+        return "";
+    }
+
+    @RequestMapping("/cooperation")
+    public String cooperation() {
+        return "";
+    }
+
+    @RequestMapping("/navigation")
+    public String navigation() {
+        return "";
+    }
+
+    @RequestMapping("/contact")
+    public String contact() {
+        return "";
+    }
+
+    @RequestMapping("/feedback")
+    public String feedback() {
+        return "";
+    }
+
+    @RequestMapping("/storelocator")
+    public String storelocator() {
+        return "";
     }
 }
