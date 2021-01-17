@@ -8,13 +8,15 @@
     <meta content="huiyishoes.com慧怡女鞋是一家专注打造高品质真皮女鞋的网站" name="description"/>
     <meta content="慧怡,慧怡女鞋,慧怡女鞋馆,huiyishoes.com,huiyishoes,女鞋,真皮女鞋,石家庄慧怡女鞋" name="keywords"/>
     <meta content="" name="copyright"/>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="<c:url value="/static/img/favicon.ico"/>" type="image/x-icon"/>
     <script type="text/javascript" src="<c:url value="/static/js/jquery-3.5.1.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/static/js/effect.js"/>"></script>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/huiyishoes-style.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/bootstrap.css" />"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/huiyishoes.css"/>"/>
 </head>
 <body>
-<div class="container">
+<div class="wrapper">
+    <!-- header -->
     <div class="header">
         <div class="mb_logo">
             <%--            <img src="<c:url value="/static/img/huiyi_logo.jpg"/> " width="307" height="104" alt="huiyishoes.com"/>--%>
@@ -142,7 +144,7 @@
             //自动切换速度,1000为1秒
             SliderdelaySec: 200,
             //渐隐或滑动速度
-            IsAutoPlay: 1,
+            IsAutoPlay: 0,
             //0为关闭,1为开启
             IsPicFullScreen: 0 //0为自定义，1为图片宽度全屏
         });
@@ -158,7 +160,7 @@
                 </dt>
                 <dd>
                     <p>
-                        <span style="line-height: 115%; font-family: 宋体,SimSun; font-size: 12px;">我们起步于1999年，是一个来自浙江的专注打造高品质真皮女鞋的品牌。几十年来专注于高品质女鞋的打造和开发，致力于为中国女性提供舒适的鞋子。</span>
+                        <span style="line-height: 115%; font-family: 宋体,SimSun; font-size: 14px;">我们起步于1999年，是一个来自浙江的专注打造高品质真皮女鞋的品牌。几十年来专注于高品质女鞋的设计和开发，致力于为中国女性提供舒适的鞋子。</span>
                     </p>
                 </dd>
             </dl>
@@ -242,5 +244,4 @@
     </div>
 </div>
 </body>
-
 </html>

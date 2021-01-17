@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <script type="text/javascript" src="<c:url value="/static/js/jquery-3.5.1.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/static/js/effect.js"/>"></script>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/huiyishoes-style.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/huiyishoes.css"/>"/>
 </head>
 <body>
 <div class="container">

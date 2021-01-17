@@ -54,7 +54,7 @@ public class UserController {
             session.setAttribute("user", rsObj);
         }
 
-        return "redirect:/";
+        return "redirect:/post";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)

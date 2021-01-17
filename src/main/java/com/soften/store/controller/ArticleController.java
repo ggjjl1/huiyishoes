@@ -7,14 +7,15 @@ import com.soften.store.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -55,7 +56,7 @@ public class ArticleController {
             articleService.addArticle(article);
         }
 
-        return "redirect:/";
+        return "redirect:/post";
     }
 
     @RequestMapping("/article/{id}")
@@ -67,6 +68,21 @@ public class ArticleController {
         model.addAttribute("user", user);
 
         return "article";
+    }
+
+    @RequestMapping("/getAllArticle")
+    @ResponseBody
+    public List<Article> showAllArticle(@RequestParam Map<String, Object> map) {
+        List<Article> result = new ArrayList<>();
+        result = articleService.getAllArticle();
+        return result;
+    }
+
+    @RequestMapping("/delete")
+    public String delete(@RequestParam Integer id) {
+        articleService.removeArticle(id);
+
+        return "redirect:/post";
     }
 
     public String valid(Article article) {

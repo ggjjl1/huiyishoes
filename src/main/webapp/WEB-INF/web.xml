@@ -33,7 +33,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:config/applicationContext.xml</param-value>
+            <param-value>classpath:config/application-context.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -42,5 +42,12 @@
         <servlet-name>SpringMVCDispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!-- tomcat session 配置 -->
+    <session-config>
+        <tracking-mode>COOKIE</tracking-mode>
+<!--        <tracking-mode>URL</tracking-mode>-->
+<!--        <tracking-mode>SSL</tracking-mode>-->
+    </session-config>
 
 </web-app>
