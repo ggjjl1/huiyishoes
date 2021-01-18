@@ -41,4 +41,14 @@ public class ArticleServiceImpl implements ArticleService {
     public Article findArticleById(int id) {
         return articleMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public int updateByTitle(Article article) {
+        return articleMapper.updateByTitle(article);
+    }
+
+    @Override
+    public Article findByTitle(String title) {
+        return articleMapper.findByTitle(title);
+    }
 }

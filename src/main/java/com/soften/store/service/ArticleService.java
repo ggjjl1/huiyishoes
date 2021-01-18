@@ -12,4 +12,8 @@ public interface ArticleService {
     List<Article> getAllArticle();
 
     Article findArticleById(int id);
+
+    int updateByTitle(Article article);
+
+    Article findByTitle(String title);
 }

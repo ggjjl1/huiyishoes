@@ -55,8 +55,8 @@
                 {data: 'id'},
                 {data: 'title'},
                 {data: 'content'},
-                {data: 'tags'},
                 {data: 'userId'},
+                {data: 'tags'},
                 {data: 'createTime'},
                 {data: 'updateTime'},
                 {

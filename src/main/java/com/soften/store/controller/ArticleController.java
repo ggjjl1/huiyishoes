@@ -13,10 +13,7 @@ import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class ArticleController {
@@ -48,13 +45,23 @@ public class ArticleController {
         String body = param.get("content");
         System.out.println("标题：" + title + ", 内容：" + body);
 
-        Article article = new Article(title, body);
-        article.setUserId(user.getId());
+        Article article = articleService.findByTitle(title);
 
-        if (valid(article).equals("")) {
-            System.out.println("验证通过，插入文章到数据库");
-            articleService.addArticle(article);
+        if (article == null) {
+            article = new Article(title, body);
+            article.setUserId(user.getId());
+
+            if (valid(article).equals("")) {
+                System.out.println("验证通过，插入文章到数据库");
+                articleService.addArticle(article);
+            }
+        } else {
+            article.setContent(body);
+            article.setUpdateTime(new Date());
+            articleService.updateByTitle(article);
+            System.out.println("更新文章内容");
         }
+
 
         return "redirect:/post";
     }
@@ -76,6 +83,13 @@ public class ArticleController {
         List<Article> result = new ArrayList<>();
         result = articleService.getAllArticle();
         return result;
+    }
+
+    @RequestMapping("/update")
+    public String update(Model model, @RequestParam Integer id) {
+        Article article = articleService.findArticleById(id);
+        model.addAttribute("article", article);
+        return "update";
     }
 
     @RequestMapping("/delete")
