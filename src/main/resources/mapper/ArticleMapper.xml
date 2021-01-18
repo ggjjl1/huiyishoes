@@ -30,7 +30,7 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
 
-    <select id="selectByTitle" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    <select id="findByTitle" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
         select
         <include refid="Base_Column_List"/>
         ,
@@ -146,5 +146,13 @@
             create_time = #{createTime,jdbcType=TIMESTAMP},
             update_time = #{updateTime,jdbcType=TIMESTAMP}
         where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateByTitle" parameterType="com.soften.store.model.Article">
+        update `article`
+        set content = #{content,jdbcType=LONGVARCHAR},
+            tags = #{tags,jdbcType=VARCHAR},
+            update_time = #{updateTime,jdbcType=TIMESTAMP}
+        where title = #{title,jdbcType=VARCHAR}
     </update>
 </mapper>
