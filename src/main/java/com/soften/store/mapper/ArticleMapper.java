@@ -17,6 +17,8 @@ public interface ArticleMapper {
 
     List<Article> selectAll();
 
+    List<Article> selectArticlesLimited();
+
     int updateByPrimaryKeySelective(Article record);
 
     int updateByPrimaryKeyWithBLOBs(Article record);

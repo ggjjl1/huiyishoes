@@ -70,15 +70,15 @@ created date:2014-10-09
                 });
                 var sliderIdNum = 0;
 
-            function sliderFunction() {
-                var sliderLiIndex = $('#sl' + sliderIdNum);
-                sliderLiIndex.trigger('mouseover');
-                if (sliderIdNum == advBoxNum) {
-                    sliderIdNum = 0;
-                } else {
-                    sliderIdNum++;
-                }
-            };
+                function sliderFunction() {
+                    var sliderLiIndex = $('#sl' + sliderIdNum);
+                    sliderLiIndex.trigger('mouseover');
+                    if (sliderIdNum == advBoxNum) {
+                        sliderIdNum = 0;
+                    } else {
+                        sliderIdNum++;
+                    }
+                };
                 break;
             //左右滑动
             case 2:
@@ -97,15 +97,15 @@ created date:2014-10-09
                 });
                 var sliderIdNum = 0;
 
-            function sliderFunction() {
-                var sliderLiIndex = $('#sl' + sliderIdNum);
-                sliderLiIndex.trigger('mouseover');
-                if (sliderIdNum == advBoxNum) {
-                    sliderIdNum = 0;
-                } else {
-                    sliderIdNum++;
-                }
-            };
+                function sliderFunction() {
+                    var sliderLiIndex = $('#sl' + sliderIdNum);
+                    sliderLiIndex.trigger('mouseover');
+                    if (sliderIdNum == advBoxNum) {
+                        sliderIdNum = 0;
+                    } else {
+                        sliderIdNum++;
+                    }
+                };
                 break;
             default:
                 $(this).append("请选择指定效果<br />1.直接切换显示，圆点标记");

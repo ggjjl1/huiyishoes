@@ -4,14 +4,14 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8"/>
-    <title>慧怡女鞋官方网站 - huiyishoes.com</title>
+    <title>慧怡女鞋官方网站 | huiyishoes.com</title>
     <meta content="huiyishoes.com慧怡女鞋是一家专注打造高品质真皮女鞋的网站" name="description"/>
     <meta content="慧怡,慧怡女鞋,慧怡女鞋馆,huiyishoes.com,huiyishoes,女鞋,真皮女鞋,石家庄慧怡女鞋" name="keywords"/>
     <meta content="" name="copyright"/>
     <link rel="shortcut icon" href="<c:url value="/static/img/favicon.ico"/>" type="image/x-icon"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/bootstrap.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/style.css"/>"/>
-    <script type="text/javascript" src="<c:url value="/static/js/jquery-3.5.1.js"/>"></script>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/bootstrap.css" />"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/huiyishoes.css"/>"/>
+    <script type="text/javascript" src="<c:url value="/static/js/jquery-3.5.1.js"/> "></script>
     <script type="text/javascript" src="<c:url value="/static/js/effect.js"/>"></script>
 </head>
 <body>
@@ -57,7 +57,7 @@
                     </dl>
                 </li>
                 <li>
-                    <a class="mb_btn_menu" href="/articleList"
+                    <a class="mb_btn_menu" href="#"
                        target="_blank">最新动态
                         <br/>
                         <b>ACTIVITY</b>
@@ -106,54 +106,9 @@
             </ul>
         </div>
     </div>
-    <!-- scroll -->
-    <div class="mb_scroll">
-        <div class="mb_slider">
-            <div class="mb_sliderItem">
-                <img title="huiyishoes001.jpg" alt="huiyishoes001.jpg"
-                     src="<c:url value="/static/img/huiyishoes001.jpg"/> "/>
-            </div>
-            <div class="mb_sliderItem">
-                <img title="huiyishoes002.jpg" alt="huiyishoes002.jpg"
-                     src="<c:url value="/static/img/huiyishoes002.jpg"/> "/>
-            </div>
-            <div class="mb_sliderItem">
-                <img title="huiyishoes003.jpg" alt="huiyishoes003.jpg"
-                     src="<c:url value="/static/img/huiyishoes003.jpg"/> "/>
-            </div>
-            <div class="mb_sliderItem">
-                <img title="huiyishoes004.jpg" alt="huiyishoes004.jpg"
-                     src="<c:url value="/static/img/huiyishoes004.jpg"/> "/>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript">
-        /* 轮播图 */
-        $(".mb_scroll").picSlider({
-            sliderStyle: 1,
-            //1为渐隐,2为滑动
-            picSliderThumb: ".mb_slider",
-            //图片外框样式
-            sliderBox: ".mb_sliderItem",
-            //sliderStyle为1时,display需为none
-            sliderLiHoverClass: "sliderLiHoverClass",
-            //标记选中样式
-            IsSliderLiNum: 1,
-            //下标是否要数字,0不显示,1显示
-            autoPlaySec: 5000,
-            //自动切换速度,1000为1秒
-            SliderdelaySec: 200,
-            //渐隐或滑动速度
-            IsAutoPlay: 0,
-            //0为关闭,1为开启
-            IsPicFullScreen: 0 //0为自定义，1为图片宽度全屏
-        });
-    </script>
     <!-- content -->
     <div class="mb_content">
-        <!-- left -->
         <div class="mb_fl_frame">
-            <!-- 品牌介绍 -->
             <dl>
                 <dt>
                     品牌介绍<b>/ ABOUT BRAND</b>
@@ -165,30 +120,23 @@
                 </dd>
             </dl>
         </div>
-        <!-- middle -->
         <div class="mb_mid_frame">
-            <!-- 活动公告 -->
             <dl>
                 <dt>
-                    <a style="text-decoration:none;color:#000"
-                       href="#"
-                       title="查看更多" target="_blank">活动公告</a>
-                    <a style="text-decoration:none;color:#eb4d88" target="_blank"
-                       href="#">
+                    <a style="text-decoration:none;color:#000" href="#" title="查看更多" target="_blank">活动公告</a>
+                    <a style="text-decoration:none;color:#eb4d88" target="_blank" href="#">
                         <b>/ ANNOUNCEMENT</b>
                     </a>
                     <a class="mb_btn_more"></a>
                 </dt>
                 <dd class="mb_mid_frame_con">
-                    <c:forEach var="item" items="${articles}">
-                        <a href="<c:url value="/article/${item.id}"/>">${item.title}</a>
-                    </c:forEach>
+                    <a href="/article/1">文章一</a>
+                    <a href="/article/2">文章二</a>
+                    <a href="/article/3">文章三</a>
                 </dd>
             </dl>
         </div>
-        <!-- right -->
         <div class="mb_fr_frame">
-            <!-- 联系我们 -->
             <dl>
                 <dt>联系我们<b> / CONTACT US</b></dt>
                 <dd>

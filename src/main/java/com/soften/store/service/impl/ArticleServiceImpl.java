@@ -38,6 +38,11 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    public List<Article> getArticles(int pageNum, int pageSize) {
+        return null;
+    }
+
+    @Override
     public Article findArticleById(int id) {
         return articleMapper.selectByPrimaryKey(id);
     }

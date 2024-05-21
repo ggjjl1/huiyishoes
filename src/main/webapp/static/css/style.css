@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 /*
 模块：mb
 作者：kris
@@ -6,7 +8,7 @@
 
 body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote {
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 
 body {
@@ -18,40 +20,20 @@ a {
 }
 
 .wrapper {
-    width: 1200px;
-    height: auto;
+    width: 90%;
     margin: 0 auto;
-    padding: 0;
+    max-width: 1024px;
 }
 
-/*header*/
-.header {
+/****** header ******/
+.mb_header {
     height: 100px;
-    position: absolute;
-    top: 50px;
-    z-index: 100;
-    left: 50%;
-    margin-left: -600px;
-    display: block;
 }
-
-
-/*.mb_logo {*/
-/*    width: 307px;*/
-/*    height: 104px;*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    float: left;*/
-/*    display: block;*/
-/*    position: absolute;*/
-/*    z-index: 110*/
-/*}*/
 
 .mb_logo {
-    width: 300px;
+    width: 284px;
     height: 100px;
     float: left;
-    display: block;
     background-color: #eb4d88;
     font-size: 48px;
     font-family: 微软雅黑;
@@ -61,20 +43,17 @@ a {
 }
 
 .mb_nav {
-    width: 750px;
-    height: 68px;
-    margin: 10px 0 0 5px;
+    width: 740px;
+    height: 100px;
     float: left;
-    display: block;
 }
 
 .mb_btn_home {
     width: 150px;
-    height: 68px;
+    height: 100px;
     margin: 0 0 0 0px;
     padding: 0;
     float: left;
-    display: block
 }
 
 .mb_btn_home a {
@@ -84,7 +63,6 @@ a {
     padding-top: 14px;
     padding-left: 100px;
     float: left;
-    display: block;
     /*background: url("../img/mb_back_nav_01.png") 0 0 no-repeat;*/
     background-color: #eb4d88;
     font: bold 14px "微软雅黑", "宋体";
@@ -106,71 +84,65 @@ a {
 }
 
 .mb_nav ul {
-    width: 750px;
-    height: 68px;
-    margin: 0;
-    padding: 0;
+    width: 740px;
+    height: 100px;
     float: left;
-    display: block
+    display: block;
+    list-style: none;
 }
 
 .mb_nav ul li,
 .mb_btn_menu {
-    width: 150px;
-    height: 68px;
-    margin: 0;
-    padding: 0;
+    width: 148px;
+    height: 100px;
     float: left;
-    display: block;
     font: bold 14px "微软雅黑", "宋体";
     text-align: center;
-    color: #fff
+    color: #fff;
 }
 
 .mb_btn_menu {
-    padding-top: 14px;
-    height: 54px;
-    background-color: #eb4d88
+    padding-top: 33px;
+    background-color: #eb4d88;
 }
 
 .mb_btn_menu b {
     font: normal 12px verdana;
-    color: #d2d2d2
+    color: #d2d2d2;
 }
 
 .mb_nav ul li:hover .mb_btn_menu {
     background-color: #9f9f9f;
     filter: alpha(opacity=80);
     opacity: 0.8;
-    text-decoration: none
+    text-decoration: none;
+    color: #333;
 }
 
 .mb_nav ul li dl {
-    width: 150px;
+    width: 148px;
     height: auto;
-    margin-top: 68px;
-+ margin-left: - 150 px;
+    margin-top: 100px;
     padding: 0;
     float: left;
     display: none;
-    position: absolute
+    position: absolute;
+    z-index: 101;
 }
 
 .mb_nav ul li:hover dl {
-    display: block
+    display: block;
 }
 
 .mb_nav ul li dl dd {
-    width: 150px;
+    width: 148px;
     height: auto;
-    margin: 0;
-    padding: 0;
     float: left;
-    display: block
+    display: block;
 }
 
 .mb_nav ul li dl dd a {
-    width: 150px;
+    width: 148px;
     padding-top: 14px;
     height: 54px;
     margin: 0;
@@ -181,36 +153,37 @@ a {
     color: #fff;
     background-color: #9f9f9f;
     filter: alpha(opacity=80);
-    opacity: 0.8
+    opacity: 0.8;
 }
 
 .mb_nav ul li dl dd a:hover {
-    background-color: #5c5b5a;
-    text-decoration: none
+    background-color: black;
+    text-decoration: none;
 }
 
 .mb_nav ul li dl dd a b {
     font: normal 12px verdana;
-    color: #d2d2d2
+    color: #d2d2d2;
 }
 
 .mb_btn_nav_brand dd a {
     height: auto !important;
-    padding: 10px 0 !important
+    padding: 10px 0 !important;
 }
 
 .mb_btn_nav_brand dd:last-child a {
-    padding-bottom: 20px !important
+    padding-bottom: 20px !important;
 }
 
-/*adv*/
+/****** advertisement ******/
 .mb_scroll {
-    height: 600px;
+    width: 100%;
+    height: 512px;
     position: relative
 }
 
 .mb_slider {
-    width: 1200px;
+    width: 1024px;
     height: auto;
     float: left;
     display: block;
@@ -219,8 +192,8 @@ a {
 }
 
 .mb_sliderItem {
-    width: 1200px;
-    height: 600px;
+    width: 1024px;
+    height: auto;
     display: none;
 }
 
@@ -233,22 +206,22 @@ a {
     right: 20px;
     bottom: 20px;
     position: absolute;
-    z-index: 99
+    z-index: 99;
 }
 
 #sliderUlId li {
     /*background: url("../images/mb_ico_scroll_01.png") 0 0 no-repeat;*/
-    background-color: #d2d2d2;
-    width: 15px;
+    display: block;
+    float: left;
+    width: 18px;
+    height: 18px;
     padding-left: 5px;
     padding-top: 2px;
-    height: 18px;
     margin-left: 10px;
     cursor: pointer;
-    float: left;
-    display: block;
+    background-color: #d2d2d2;
     color: #fff;
-    font: normal 12px verdana
+    font: normal 12px verdana;
 }
 
 .sliderLiHoverClass {
@@ -256,7 +229,7 @@ a {
     background-color: #eb4d88 !important;
 }
 
-/*content*/
+/****** content ******/
 .mb_content, .mb_content2 {
     background-color: #efeee9;
     overflow: hidden;
@@ -269,8 +242,7 @@ a {
     margin-left: 40px;
     padding: 0;
     float: left;
-    display: block;
-    width: 340px;
+    width: 300px;
     height: auto
 }
 
@@ -283,7 +255,6 @@ a {
 .mb_fr_frame dl,
 .mb_fr_frame dl dt,
 .mb_fr_frame dl dd {
-    width: 340px;
     height: auto;
     float: left;
     display: block;
@@ -478,7 +449,7 @@ a {
     float: right
 }
 
-/*company*/
+/****** company ******/
 .mb_company {
     height: 780px;
     position: relative;
@@ -518,7 +489,7 @@ a {
     line-height: 200% !important
 }
 
-/*article detail*/
+/****** article detail ******/
 .hy_article {
     width: 100%;
     height: 300px;
@@ -599,7 +570,7 @@ a {
     line-height: 230% !important
 }
 
-/*article list*/
+/****** article list ******/
 .mb_article_list {
     height: 780px;
     position: relative;
@@ -609,7 +580,7 @@ a {
 .mb_article_list_con {
     margin: 20px 0 0 194px;
     padding: 0;
-    width: 966px;
+    width: 666px;
     height: auto;
     float: left;
     display: block
@@ -643,7 +614,7 @@ a {
 }
 
 .mb_article_list_con ul li a {
-    width: 850px
+    width: 70%;
 }
 
 .mb_article_list_con ul li b {
@@ -652,7 +623,7 @@ a {
 
 .mb_article_list_con ul li:hover a,
 .mb_article_list_con ul li:hover b {
-    color: #ea5c25 !important;
+    color: #eb4d88 !important;
     text-decoration: none
 }
 
@@ -660,7 +631,7 @@ a {
     margin: 30px 0 0 194px;
     padding: 0;
     position: relative;
-    width: 966px;
+    width: 666px;
     height: auto;
     float: left;
     display: block
@@ -686,13 +657,13 @@ a {
     margin: 0 10px;
     padding: 0;
     font: normal 12px verdana;
-    color: #9f9f9f
+    color: #9f9f9f;
 }
 
 .mb_pag_content a:hover,
 .mb_pag_on {
-    color: #ea5c25 !important;
-    text-decoration: none
+    color: #eb4d88 !important;
+    text-decoration: none;
 }
 
 .mb_btn_pre,
@@ -721,7 +692,7 @@ a {
 }
 
 
-/*brand*/
+/****** brand ******/
 .mb_brand_center {
     height: 780px;
     position: relative;
@@ -788,7 +759,7 @@ a {
     font: normal 12px "微软雅黑", "宋体", verdana;
 }
 
-/*investor*/
+/****** investor ******/
 .mb_stock_view {
     margin: 0;
     font: normal 12px "微软雅黑", "宋体";
@@ -858,7 +829,7 @@ a {
     margin-top: 0
 }
 
-/*footer*/
+/****** footer ******/
 .mb_footer {
     background-color: #4c4c48;
     clear: left
@@ -899,7 +870,7 @@ a {
 }
 
 .mb_footer p {
-    width: 1200px;
+    width: 100%;
     height: auto;
     margin: 0;
     padding-bottom: 20px;
