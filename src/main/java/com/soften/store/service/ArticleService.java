@@ -11,6 +11,8 @@ public interface ArticleService {
 
     List<Article> getAllArticle();
 
+    List<Article> getArticles(int pageNum, int pageSize);
+
     Article findArticleById(int id);
 
     int updateByTitle(Article article);
