@@ -1,25 +1,27 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
 <head>
-    <meta charset="utf-8"/>
-    <title>慧怡女鞋官方网站 | huiyishoes.com</title>
+    <meta charset="UTF-8"/>
+    <title>慧怡女鞋官方网站 - huiyishoes.com</title>
     <meta content="huiyishoes.com慧怡女鞋是一家专注打造高品质真皮女鞋的网站" name="description"/>
     <meta content="慧怡,慧怡女鞋,慧怡女鞋馆,huiyishoes.com,huiyishoes,女鞋,真皮女鞋,石家庄慧怡女鞋" name="keywords"/>
-    <meta content="ggjjl1" name="copyright"/>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
-    <script type="text/javascript" src="<c:url value="/static/js/jquery-3.5.1.js"/> "></script>
+    <meta content="" name="copyright"/>
+    <link rel="shortcut icon" href="<c:url value="/static/img/favicon.ico"/>" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/bootstrap.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/style.css"/>"/>
+    <script type="text/javascript" src="<c:url value="/static/js/jquery-3.5.1.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/static/js/effect.js"/>"></script>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/static/css/huiyishoes.css"/>"/>
 </head>
 <body>
-<div class="container">
-    <div class="header">
+<div class="wrapper">
+    <!-- header -->
+    <div class="mb_header">
         <div class="mb_logo">
-            <%--            <img src="<c:url value="/static/img/huiyi_logo.jpg"/> " width="307" height="104" alt="huiyishoes.com"/>--%>
-            慧怡
+            <!-- <img src="<c:url value="/static/img/huiyi_logo.jpg"/> " width="307" height="104" alt="huiyishoes.com"/> -->
+            慧怡女鞋
         </div>
         <div class="mb_nav">
             <ul>
@@ -56,7 +58,7 @@
                     </dl>
                 </li>
                 <li>
-                    <a class="mb_btn_menu" href="#"
+                    <a class="mb_btn_menu" href="/articleList"
                        target="_blank">最新动态
                         <br/>
                         <b>ACTIVITY</b>
@@ -106,15 +108,15 @@
         </div>
     </div>
     <!-- content -->
-    <div class="mb_content mb_article_con">
-        <!-- 面包屑 -->
-        <div class="mb_brand">首页 > 最新动态</div>
-        <!-- 文章内容 -->
-        <div class="hy_article">
-            <h3>${article.title}</h3>
-            <p>${article.content}</p>
+    <div class="mb_content">
+        <div class="mb_article_content">
+            <dl>
+                <dt>${article.title}</dt>
+                <dd>${article.content}</dd>
+            </dl>
         </div>
     </div>
+    <!-- footer -->
     <div class="mb_footer">
         <ul>
             <li>
@@ -142,14 +144,14 @@
                 </a>
             </li>
             <li>
-                <a href="/feedback" target="_blank">向我们反馈</a>
+                <a href="/feedback" target="_blank">问题反馈</a>
                 <a href="/feedback" target="_blank">
                     <b>/ FEEDBACK</b>
                 </a>
             </li>
             <li>
-                <a href="/store" target="_blank">我们的门店</a>
-                <a href="/store" target="_blank">
+                <a href="/storelocator" target="_blank">查找门店</a>
+                <a href="/storelocator" target="_blank">
                     <b>/ STORE LOCATOR</b>
                 </a>
             </li>
@@ -158,6 +160,4 @@
     </div>
 </div>
 </body>
-
 </html>
-
